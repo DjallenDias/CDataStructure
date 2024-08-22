@@ -3,11 +3,15 @@
 
 typedef struct s_linked_list List;
 
+List *copy_list(List *);
+
+List *invert_list(List *);
+
 void insert_beginning(int, List **);
 
 void create_list(List **);
 
-void freelist(List **);
+void free_list(List **);
 
 void show_list(List *);
 

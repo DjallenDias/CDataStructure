@@ -1,3 +1,6 @@
+# Vscode folders
+.vscode
+
 # Ignore build files
 *.o
 *.out
