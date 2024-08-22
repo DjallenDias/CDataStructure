@@ -1,19 +1,28 @@
-CC = gcc
-CFLAGS = -Iinclude -Wall -Wextra -g
-LDFLAGS = -Llib -lminha_bib
-SRC = $(wildcard src/*.c)
-OBJ = $(SRC:src/%.c=build/%.o)
-EXEC = build/meu_projeto
+CXX = gcc
+CXXFLAGS = -Wall -Iinclude
 
-all: $(EXEC)
+SRCDIR = src
+BUILDDIR = build
+BINDIR = bin
 
-$(EXEC): $(OBJ)
-	$(CC) $(OBJ) -o $(EXEC) $(LDFLAGS)
+SOURCES = $(wildcard $(SRCDIR)/*.c)
+OBJECTS = $(patsubst $(SRCDIR)/%.c,$(BUILDDIR)/%.o,$(SOURCES))
+EXECUTABLE = $(BINDIR)/my_program
 
-build/%.o: src/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+all: $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	@mkdir -p $(BINDIR)
+	$(CXX) -g -o $@ $^ $(CXXFLAGS)
+
+$(BUILDDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(BUILDDIR)
+	$(CXX) -g -c -o $@ $< $(CXXFLAGS)
 
 clean:
-	rm -f build/*.o $(EXEC)
+	rm -rf $(BUILDDIR) $(BINDIR)
 
-.PHONY: clean
+run:
+	./bin/my_program
+
+.PHONY: all clean
