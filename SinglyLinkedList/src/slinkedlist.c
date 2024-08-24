@@ -7,6 +7,12 @@ struct s_linked_list {
     struct s_linked_list *next;
 };
 
+List *last_item(List *l) {
+    List *aux;
+    for(aux = l; aux->next != NULL; aux = aux->next);
+    return aux;
+}
+
 List *invert_list(List *l) {
     List *inverted_list; create_list(&inverted_list);
 
@@ -37,13 +43,30 @@ List *copy_list(List *l) {
     return copy_list;
 }
 
+int greater_than(int n, List *l) {
+    int res = 0;
+
+    for (List *aux = l; aux != NULL; aux = aux->next) {
+        if(aux->data > n) {res++;}
+    }
+    
+    return res++;
+}
+
+int len(List *l) {
+    int len = 0;
+    for(List *aux = l; aux != NULL; aux = aux->next) {
+        len++;
+    }
+    return len;
+}
+
 void insert_beginning(int element, List **l) {
     List *aux = *l;
     List *new = (List *) malloc(sizeof(List));
 
     if(new == NULL) {
         puts("Unable to allocate memory");
-        return -1;
     }
 
     new->data = element;
@@ -53,8 +76,9 @@ void insert_beginning(int element, List **l) {
 
 void show_list(List *l) {
     for(List *aux = l; aux!=NULL; aux = aux->next) {
-        printf("%d\n", aux->data);
+        printf("%d ", aux->data);
     }
+    puts("");
 }
 
 void free_list(List **l) {

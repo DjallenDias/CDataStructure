@@ -7,12 +7,21 @@ int main(void) {
     while (1) { // while just to verify memory leak
         create_list(&list1);
 
-        for (int i = 10; i > 0 ; i--) {
+        for (int i = 10; i > 2 ; i--) {
             insert_beginning(i, &list1);
         }
 
         puts("list1: ");
         show_list(list1);
+
+        printf("N. of greater than 4 in list1: %d\n", greater_than(4, list1));
+
+        printf("List1 lenght: ");
+        printf("%d\n", len(list1));
+
+        List *last_item1 = last_item(list1);
+        printf("List1 last item: ");
+        show_list(last_item1);
 
         puts("listinvert1: ");
         List *listinvert1;
