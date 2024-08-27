@@ -3,22 +3,26 @@
 
 typedef struct s_linked_list List;
 
+List *create_list(void);
+
 List *last_item(List *) ;
 
 List *copy_list(List *);
 
 List *invert_list(List *);
 
-int greater_than(int, List *);
+List *concat(List *, List *);
 
-int len(List *);
+List *remove_n(List *, int);
 
-void insert_beginning(int, List **);
+void insert_beginning(List **, int);
 
-void create_list(List **);
+void show_list(List *);
 
 void free_list(List **);
 
-void show_list(List *);
+int greater_than(List *, int);
+
+int len(List *);
 
 #endif // SLINKEDLIST_H
