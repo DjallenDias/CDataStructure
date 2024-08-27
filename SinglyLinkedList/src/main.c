@@ -84,6 +84,24 @@ int main(void) {
 
         printf("List5 separeted on 11: "); show_list(list5_separeted);
 
+        free_list(&list5);
+        free_list(&list5_separeted);
+
+        SinglyList *list6 = create_list(), *list7 = create_list();
+
+        insert_beginning(&list6, 4);
+        insert_beginning(&list6, 11);
+        //insert_beginning(&list6, 12);
+
+        insert_beginning(&list7, 4);
+        insert_beginning(&list7, 11);
+        //insert_beginning(&list7, 11);
+
+        printf("List6 == List7? %s\n", is_equal(list6, list7) ? "True" : "False");
+
+        free_list(&list6);
+        free_list(&list7);
+        
         break; // comment to enable the loop
     }
 

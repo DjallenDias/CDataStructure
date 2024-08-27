@@ -124,6 +124,20 @@ void free_list(SinglyList **l) {
     *l = NULL;
 }
 
+int is_equal(SinglyList *l1, SinglyList *l2) {
+    if(len(l1) != len(l2)) {return 0;}
+
+    SinglyList *aux1 = l1, *aux2 = l2;
+    
+    while (aux1 != NULL) {
+        if(aux1->data != aux2->data) {return 0;}
+
+        aux1 = aux1->next; aux2 = aux2->next;
+    }
+
+    return 1;
+}
+
 int greater_than(SinglyList *l, int n) {
     int res = 0;
 
