@@ -53,6 +53,24 @@ int main(void) {
         free_list(&list2);
         free_list(&list3);
         free_list(&conc_list2_a_3);
+
+        List *list4 = create_list();
+        insert_beginning(&list4, 4);
+        insert_beginning(&list4, 99);
+        insert_beginning(&list4, 11);
+
+        printf("List4: "); show_list(list4);
+        List *remove_4_list4 = remove_n(list4, 4);
+        List *remove_11_list4 = remove_n(list4, 11);
+        List *remove_99_list4 = remove_n(list4, 99);
+        printf("List4 without 4: "); show_list(remove_4_list4);
+        printf("List4 without 11: "); show_list(remove_11_list4);
+        printf("List4 without 99: "); show_list(remove_99_list4);
+
+        free_list(&list4);
+        free_list(&remove_4_list4);
+        free_list(&remove_11_list4);
+        free_list(&remove_99_list4);
         break; // comment to enable the loop
     }
 

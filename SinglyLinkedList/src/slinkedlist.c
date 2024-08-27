@@ -54,6 +54,29 @@ List *concat(List *l1, List *l2) {
     }
 }
 
+List *remove_n(List *l, int n) {
+    List *res = copy_list(l);
+    for(List *aux = res; aux != NULL; aux = aux->next) {
+        if (aux->data == n) {
+            if (aux->next != NULL) {
+                res = aux->next;
+            } else {
+                res = NULL;
+            }
+
+            free(aux);
+            return res;
+        }
+
+        if(aux->next->data == n) {
+            List *to_free = aux->next;
+            aux->next = aux->next->next;
+            free(to_free);
+            return res;
+        }
+    }
+}
+
 void insert_beginning(List **l, int element) {
     List *aux = *l;
     List *new = (List *) malloc(sizeof(List));
