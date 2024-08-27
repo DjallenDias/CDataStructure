@@ -1,4 +1,0 @@
-#ifndef DLINKEDLIST_H
-#define DLINKEDLIST_H
-
-#endif // DLINKEDLIST_H
