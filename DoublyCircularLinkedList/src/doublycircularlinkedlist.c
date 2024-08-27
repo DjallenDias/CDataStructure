@@ -1,6 +1,1 @@
 #include "doublycircularlinkedlist.h"
-
-int main(void) {
-    
-    return 0;
-}
