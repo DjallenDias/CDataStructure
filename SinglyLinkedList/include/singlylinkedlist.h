@@ -1,5 +1,5 @@
-#ifndef SLINKEDLIST_H
-#define SLINKEDLIST_H
+#ifndef SINGLYLINKEDLIST_H
+#define SINGLYLINKEDLIST_H
 
 typedef struct singly_linked_list SinglyList;
 
@@ -31,4 +31,4 @@ int greater_than(SinglyList *, int);
 
 int len(SinglyList *);
 
-#endif // SLINKEDLIST_H
+#endif // SINGLYLINKEDLIST_H

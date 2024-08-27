@@ -1,4 +1,4 @@
-#include "slinkedlist.h"
+#include "singlylinkedlist.h"
 #include <stdio.h>
 #include <stdlib.h>
 
