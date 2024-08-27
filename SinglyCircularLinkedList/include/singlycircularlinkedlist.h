@@ -1,5 +1,5 @@
-#ifndef SCIRCULARLINKEDLIST_H
-#define SCIRCULARLINKEDLIST_H
+#ifndef SINGLYCIRCULARLINKEDLIST_H
+#define SINGLYCIRCULARLINKEDLIST_H
 
 typedef struct singly_circular_linked_list SinglyCircularList;
 
@@ -31,4 +31,4 @@ int greater_than(SinglyCircularList *, int);
 
 int len(SinglyCircularList *);
 
-#endif // SCIRCULARLINKEDLIST_H
+#endif // SINGLYCIRCULARLINKEDLIST_H
