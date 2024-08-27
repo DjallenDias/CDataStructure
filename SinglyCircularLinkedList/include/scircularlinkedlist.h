@@ -1,34 +1,34 @@
 #ifndef SCIRCULARLINKEDLIST_H
 #define SCIRCULARLINKEDLIST_H
 
-typedef struct s_circular_linked_list List;
+typedef struct singly_circular_linked_list SinglyCircularList;
 
-List *create_list(void);
+SinglyCircularList *create_list(void);
 
-List *last_item(List *);
+SinglyCircularList *last_item(SinglyCircularList *);
 
-List *copy_list(List *);
+SinglyCircularList *copy_list(SinglyCircularList *);
 
-List *invert_list(List *);
+SinglyCircularList *invert_list(SinglyCircularList *);
 
-List *concat(List *, List *);
+SinglyCircularList *concat(SinglyCircularList *, SinglyCircularList *);
 
-List *remove_n(List *, int);
+SinglyCircularList *remove_n(SinglyCircularList *, int);
 
-List *separates_in_n(List *, int);
+SinglyCircularList *separates_in_n(SinglyCircularList *, int);
 
-List *merge_lists(List *, List *);
+SinglyCircularList *merge_lists(SinglyCircularList *, SinglyCircularList *);
 
-void insert_beginning(List **, int);
+void insert_beginning(SinglyCircularList **, int);
 
-void show_list(List *);
+void show_list(SinglyCircularList *);
 
-void free_list(List **);
+void free_list(SinglyCircularList **);
 
-int is_equal(List *, List *);
+int is_equal(SinglyCircularList *, SinglyCircularList *);
 
-int greater_than(List *, int);
+int greater_than(SinglyCircularList *, int);
 
-int len(List *);
+int len(SinglyCircularList *);
 
 #endif // SCIRCULARLINKEDLIST_H
