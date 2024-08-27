@@ -15,7 +15,7 @@ SinglyList *concat(SinglyList *, SinglyList *);
 
 SinglyList *remove_n(SinglyList *, int);
 
-SinglyList *separates_in_n(SinglyList *, int);
+SinglyList *separates_in_n(SinglyList **, int);
 
 SinglyList *merge_lists(SinglyList *, SinglyList *);
 

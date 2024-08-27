@@ -77,6 +77,21 @@ SinglyList *remove_n(SinglyList *l, int n) {
     }
 }
 
+SinglyList *separates_in_n(SinglyList **l, int n) {
+    SinglyList *res;
+    for(SinglyList *aux = *l; aux != NULL; aux = aux->next) {
+        if(aux->data == n) {
+            res = aux->next;
+            aux->next = NULL;
+            return res;
+        }
+    }
+}
+
+SinglyList *merge_lists(SinglyList *l1, SinglyList *l2) {
+
+}
+
 void insert_beginning(SinglyList **l, int element) {
     SinglyList *aux = *l;
     SinglyList *new = (SinglyList *) malloc(sizeof(SinglyList));

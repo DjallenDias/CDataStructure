@@ -58,19 +58,32 @@ int main(void) {
         insert_beginning(&list4, 4);
         insert_beginning(&list4, 99);
         insert_beginning(&list4, 11);
+        insert_beginning(&list4, 4);
 
         printf("List4: "); show_list(list4);
-        SinglyList *remove_4_list4 = remove_n(list4, 4);
-        SinglyList *remove_11_list4 = remove_n(list4, 11);
-        SinglyList *remove_99_list4 = remove_n(list4, 99);
-        printf("List4 without 4: "); show_list(remove_4_list4);
-        printf("List4 without 11: "); show_list(remove_11_list4);
-        printf("List4 without 99: "); show_list(remove_99_list4);
+        
+        //something wrong
+        SinglyList *remove4_list4 = remove_n(list4, 4);
+        show_list(remove4_list4);
 
         free_list(&list4);
-        free_list(&remove_4_list4);
-        free_list(&remove_11_list4);
-        free_list(&remove_99_list4);
+        free_list(&remove4_list4);
+        //
+
+        SinglyList *list5 = create_list();
+        insert_beginning(&list5, 4);
+        insert_beginning(&list5, 99);
+        insert_beginning(&list5, 11);
+        insert_beginning(&list5, 4);
+
+        printf("List5: "); show_list(list5);
+
+        SinglyList *list5_separeted = separates_in_n(&list5, 11);
+
+        printf("List5: "); show_list(list5);
+
+        printf("List5 separeted on 11: "); show_list(list5_separeted);
+
         break; // comment to enable the loop
     }
 
