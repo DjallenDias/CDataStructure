@@ -2,30 +2,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct s_linked_list {
+struct singly_linked_list {
     int data;
-    struct s_linked_list *next;
+    struct singly_linked_list *next;
 };
 
-List *create_list(void) {
+SinglyList *create_list(void) {
     return NULL;
 }
 
-List *last_item(List *l) {
-    List *aux;
+SinglyList *last_item(SinglyList *l) {
+    SinglyList *aux;
     for(aux = l; aux->next != NULL; aux = aux->next);
     return aux;
 }
 
-List *copy_list(List *l) {
-    List *copy_list = create_list();
-    List *aux = create_list();
+SinglyList *copy_list(SinglyList *l) {
+    SinglyList *copy_list = create_list();
+    SinglyList *aux = create_list();
 
-    for(List *curr = l; curr != NULL; curr = curr->next) {
+    for(SinglyList *curr = l; curr != NULL; curr = curr->next) {
         insert_beginning(&aux, curr->data);
     }
 
-    for(List *curr = aux; curr != NULL; curr = curr->next) {
+    for(SinglyList *curr = aux; curr != NULL; curr = curr->next) {
         insert_beginning(&copy_list, curr->data);
     }
 
@@ -34,19 +34,19 @@ List *copy_list(List *l) {
     return copy_list;
 }
 
-List *invert_list(List *l) {
-    List *inverted_list = create_list();
+SinglyList *invert_list(SinglyList *l) {
+    SinglyList *inverted_list = create_list();
 
-    for(List *aux = l; aux!=NULL; aux = aux->next) {
+    for(SinglyList *aux = l; aux!=NULL; aux = aux->next) {
         insert_beginning(&inverted_list, aux->data);
     }
 
     return inverted_list;
 }
 
-List *concat(List *l1, List *l2) {
-    List *concatenated = copy_list(l1);
-    for(List *aux = concatenated; aux != NULL; aux = aux->next) {
+SinglyList *concat(SinglyList *l1, SinglyList *l2) {
+    SinglyList *concatenated = copy_list(l1);
+    for(SinglyList *aux = concatenated; aux != NULL; aux = aux->next) {
         if(aux->next == NULL) {
             aux->next = copy_list(l2);
             return concatenated;
@@ -54,9 +54,9 @@ List *concat(List *l1, List *l2) {
     }
 }
 
-List *remove_n(List *l, int n) {
-    List *res = copy_list(l);
-    for(List *aux = res; aux != NULL; aux = aux->next) {
+SinglyList *remove_n(SinglyList *l, int n) {
+    SinglyList *res = copy_list(l);
+    for(SinglyList *aux = res; aux != NULL; aux = aux->next) {
         if (aux->data == n) {
             if (aux->next != NULL) {
                 res = aux->next;
@@ -69,7 +69,7 @@ List *remove_n(List *l, int n) {
         }
 
         if(aux->next->data == n) {
-            List *to_free = aux->next;
+            SinglyList *to_free = aux->next;
             aux->next = aux->next->next;
             free(to_free);
             return res;
@@ -77,9 +77,9 @@ List *remove_n(List *l, int n) {
     }
 }
 
-void insert_beginning(List **l, int element) {
-    List *aux = *l;
-    List *new = (List *) malloc(sizeof(List));
+void insert_beginning(SinglyList **l, int element) {
+    SinglyList *aux = *l;
+    SinglyList *new = (SinglyList *) malloc(sizeof(SinglyList));
 
     if(new == NULL) {
         puts("Unable to allocate memory");
@@ -90,15 +90,15 @@ void insert_beginning(List **l, int element) {
     *l = new;
 }
 
-void show_list(List *l) {
-    for(List *aux = l; aux!=NULL; aux = aux->next) {
+void show_list(SinglyList *l) {
+    for(SinglyList *aux = l; aux!=NULL; aux = aux->next) {
         printf("%d ", aux->data);
     }
     puts("");
 }
 
-void free_list(List **l) {
-    List *curr = *l, *next;
+void free_list(SinglyList **l) {
+    SinglyList *curr = *l, *next;
 
     while (curr != NULL) {
         next = curr->next;
@@ -109,19 +109,19 @@ void free_list(List **l) {
     *l = NULL;
 }
 
-int greater_than(List *l, int n) {
+int greater_than(SinglyList *l, int n) {
     int res = 0;
 
-    for (List *aux = l; aux != NULL; aux = aux->next) {
+    for (SinglyList *aux = l; aux != NULL; aux = aux->next) {
         if(aux->data > n) {res++;}
     }
     
     return res++;
 }
 
-int len(List *l) {
+int len(SinglyList *l) {
     int len = 0;
-    for(List *aux = l; aux != NULL; aux = aux->next) {
+    for(SinglyList *aux = l; aux != NULL; aux = aux->next) {
         len++;
     }
     return len;

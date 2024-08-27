@@ -1,34 +1,34 @@
 #ifndef SLINKEDLIST_H
 #define SLINKEDLIST_H
 
-typedef struct s_linked_list List;
+typedef struct singly_linked_list SinglyList;
 
-List *create_list(void);
+SinglyList *create_list(void);
 
-List *last_item(List *);
+SinglyList *last_item(SinglyList *);
 
-List *copy_list(List *);
+SinglyList *copy_list(SinglyList *);
 
-List *invert_list(List *);
+SinglyList *invert_list(SinglyList *);
 
-List *concat(List *, List *);
+SinglyList *concat(SinglyList *, SinglyList *);
 
-List *remove_n(List *, int);
+SinglyList *remove_n(SinglyList *, int);
 
-List *separates_in_n(List *, int);
+SinglyList *separates_in_n(SinglyList *, int);
 
-List *merge_lists(List *, List *);
+SinglyList *merge_lists(SinglyList *, SinglyList *);
 
-void insert_beginning(List **, int);
+void insert_beginning(SinglyList **, int);
 
-void show_list(List *);
+void show_list(SinglyList *);
 
-void free_list(List **);
+void free_list(SinglyList **);
 
-int is_equal(List *, List *);
+int is_equal(SinglyList *, SinglyList *);
 
-int greater_than(List *, int);
+int greater_than(SinglyList *, int);
 
-int len(List *);
+int len(SinglyList *);
 
 #endif // SLINKEDLIST_H
