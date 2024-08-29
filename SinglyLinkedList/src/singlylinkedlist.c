@@ -56,25 +56,25 @@ SinglyList *concat(SinglyList *l1, SinglyList *l2) {
 
 SinglyList *remove_n(SinglyList *l, int n) {
     SinglyList *res = copy_list(l);
-    for(SinglyList *aux = res; aux != NULL; aux = aux->next) {
-        if (aux->data == n) {
-            if (aux->next != NULL) {
-                res = aux->next;
-            } else {
-                res = NULL;
-            }
+    SinglyList *aux = res;
 
-            free(aux);
-            return res;
-        }
+    // First element
+    if(aux->data == n) {
+        res = res->next;
+        free(aux);
+    }
 
+    aux = res;
+
+    for(; aux != NULL; aux = aux->next) {
         if(aux->next->data == n) {
             SinglyList *to_free = aux->next;
             aux->next = aux->next->next;
             free(to_free);
-            return res;
         }
     }
+
+    return res;
 }
 
 SinglyList *separates_in_n(SinglyList **l, int n) {
