@@ -96,7 +96,30 @@ int main(void) {
 
         free_list(&list6);
         free_list(&list7);
-        
+
+        SinglyList *list8 = create_list(), *list9 = create_list();
+
+        for (int i = 10; i > 5 ; i--) {
+            insert_beginning(&list8, i);
+        }
+
+        for (int i = 5; i > 0; i--) {
+            insert_beginning(&list9, i);
+        }
+
+        printf("List8: "); show_list(list8);
+        printf("List9: "); show_list(list9);
+
+        SinglyList *l8_merge_l9 = merge_lists(list8, list9);
+
+        printf("List 8 and 9 merged: "); show_list(l8_merge_l9);
+
+        printf("List8: "); show_list(list8);
+        printf("List9: "); show_list(list9);
+
+        free_list(&list8);
+        free_list(&list9);
+        free_list(&l8_merge_l9);        
         break; // comment to enable the loop
     }
 

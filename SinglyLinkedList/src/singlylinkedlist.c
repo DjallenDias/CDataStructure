@@ -89,7 +89,25 @@ SinglyList *separates_in_n(SinglyList **l, int n) {
 }
 
 SinglyList *merge_lists(SinglyList *l1, SinglyList *l2) {
+    SinglyList *res_aux = create_list();
+    SinglyList *aux1 = l1, *aux2 = l2;
 
+    while ((aux1 != NULL) || (aux2 != NULL)) {
+        if (aux1 != NULL) {
+            insert_beginning(&res_aux, aux1->data);
+            aux1 = aux1->next;
+        }
+
+        if (aux2 != NULL) {
+            insert_beginning(&res_aux, aux2->data);
+            aux2 = aux2->next;
+        }
+    }
+
+    SinglyList *res = invert_list(res_aux);
+    free_list(&res_aux);
+
+    return res;
 }
 
 void insert_beginning(SinglyList **l, int element) {
