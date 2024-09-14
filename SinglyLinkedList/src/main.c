@@ -72,9 +72,9 @@ int main(void) {
 
         SinglyList *list5_separeted = separates_in_n(&list5, 11);
 
-        printf("List5: "); show_list(list5);
-
         printf("List5 separeted on 11: "); show_list(list5_separeted);
+
+        printf("List5: "); show_list(list5);
 
         free_list(&list5);
         free_list(&list5_separeted);
@@ -88,6 +88,9 @@ int main(void) {
         insert_beginning(&list7, 4);
         insert_beginning(&list7, 11);
         //insert_beginning(&list7, 11);
+
+        printf("List6: "); show_list(list6);
+        printf("List7: "); show_list(list7);
 
         printf("List6 == List7? %s\n", is_equal(list6, list7) ? "True" : "False");
 
