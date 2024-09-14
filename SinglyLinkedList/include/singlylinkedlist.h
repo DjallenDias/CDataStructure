@@ -71,17 +71,17 @@ SinglyList *concat(SinglyList *, SinglyList *);
 
 /**
 * 
-* @brief Remove a number from the singly linke list
+* @brief Remove all occurrences of a number from the singly linked list
 *
 * Creates a copy of the singly linked list provided as a parameter,
-* and then searches for a specific number within this copied list. If the number
-* is found, it is removed from the copy. The function returns a new singly linked list
-* that excludes the specified number.
+* and then searches for all occurrences of a specific number within this copied list. 
+* If the number is found, each occurrence is removed from the copy. 
+* The function returns a new singly linked list that excludes all occurrences of the specified number.
 *
 * @param SinglyList* Pointer to the first SinglyList
 * @param int The number that will be removed
 *
-* @return SinglyList* - Pointer to the new list without the number
+* @return SinglyList* - Pointer to the new list without any occurrences of the number
 */
 SinglyList *remove_n(SinglyList *, int);
 
