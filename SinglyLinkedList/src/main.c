@@ -56,7 +56,7 @@ int main(void) {
 
         printf("List4: "); show_list(list4);
         
-        SinglyList *remove4_list4 = remove_n(list4, 4);
+        SinglyList *remove4_list4 = remove_all_n(list4, 4);
         printf("List4 without n. 4: "); show_list(remove4_list4);
 
         free_list(&list4);
@@ -120,6 +120,24 @@ int main(void) {
         free_list(&list8);
         free_list(&list9);
         free_list(&l8_merge_l9);        
+
+        SinglyList *list10 = create_list();
+
+        for (int i = 5; i > 0; i--) {
+            insert_beginning(&list10, i);
+        }
+        insert_beginning(&list10, 2);
+        insert_beginning(&list10, 2);
+
+        SinglyList *list10_r2 = remove_f_n(list10, 2);
+
+        printf("List10: "); show_list(list10);
+        printf("List10 witout the first 2: "); show_list(list10_r2);
+
+
+
+
+
         break; // comment to enable the loop
     }
 

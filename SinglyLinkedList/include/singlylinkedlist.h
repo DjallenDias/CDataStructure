@@ -83,7 +83,12 @@ SinglyList *concat(SinglyList *, SinglyList *);
 *
 * @return SinglyList* - Pointer to the new list without any occurrences of the number
 */
-SinglyList *remove_n(SinglyList *, int);
+SinglyList *remove_all_n(SinglyList *, int);
+
+/*
+* implement
+*/
+SinglyList *remove_f_n(SinglyList *, int);
 
 /**
 * 
@@ -118,6 +123,11 @@ SinglyList *merge_lists(SinglyList *, SinglyList *);
 *
 */
 void insert_beginning(SinglyList **, int);
+
+/*
+* need to implement
+*/
+void insert_end(SinglyList **, int);
 
 void show_list(SinglyList *);
 
