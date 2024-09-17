@@ -90,17 +90,16 @@ SinglyList *merge_lists(SinglyList *l1, SinglyList *l2) {
     return res;
 }
 
-SinglyList *remove_all_n(SinglyList *l, int n) {
-    SinglyList *res = copy_list(l);
-    SinglyList *aux = res;
+void remove_all_n(SinglyList **l, int n) {
+    SinglyList *aux = *l;
 
     // First element
     if(aux->data == n) {
-        res = res->next;
-        free(aux);
+        SinglyList *to_free = aux;
+        *l = aux->next;
+        free(to_free);
+        return;
     }
-
-    aux = res;
 
     for(; aux != NULL; aux = aux->next) {
         if(aux->next->data == n) {
@@ -109,28 +108,25 @@ SinglyList *remove_all_n(SinglyList *l, int n) {
             free(to_free);
         }
     }
-
-    return res;
 }
 
-SinglyList *remove_f_n(SinglyList *l, int n) {
-    SinglyList *res = copy_list(l);
-    SinglyList *aux = res;
+void remove_f_n(SinglyList **l, int n) {
+    SinglyList *aux = *l;
 
     // First element
     if(aux->data == n) {
-        res = res->next;
-        free(aux);
+        SinglyList *to_free = aux;
+        *l = aux->next;
+        free(to_free);
+        return;
     }
-
-    aux = res;
 
     for(; aux != NULL; aux = aux->next) {
         if(aux->next->data == n) {
             SinglyList *to_free = aux->next;
             aux->next = aux->next->next;
             free(to_free);
-            return res;
+            return;
         }
     }
 }

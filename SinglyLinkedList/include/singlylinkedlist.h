@@ -103,13 +103,12 @@ SinglyList *merge_lists(SinglyList *, SinglyList *);
 *
 * @return SinglyList* - Pointer to the new list without any occurrences of the number
 */
-SinglyList *remove_all_n(SinglyList *, int);
+void remove_all_n(SinglyList **, int);
 
 /*
 * implemented
 */
-SinglyList *remove_f_n(SinglyList *, int);
-
+void remove_f_n(SinglyList **, int);
 
 /**
 * 
