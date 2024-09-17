@@ -71,6 +71,26 @@ SinglyList *concat(SinglyList *, SinglyList *);
 
 /**
 * 
+* @brief Separate the list in a number
+*
+* Searches for a specific number in the param list. If the number is found,
+* the list is separeted in the next knot that the number is.
+* And returns a pointer that points to the remaining part that was separeted.
+*
+* @param SinglyList** Pointer to the SinglyList
+* @param int The number that will be searched to separate the list in
+*
+* @return SinglyList* - Pointer to the remaining list
+*/
+SinglyList *separates_in_n(SinglyList **, int);
+
+/*
+* need to implement the function
+*/
+SinglyList *merge_lists(SinglyList *, SinglyList *);
+
+/**
+* 
 * @brief Remove all occurrences of a number from the singly linked list
 *
 * Creates a copy of the singly linked list provided as a parameter,
@@ -90,25 +110,6 @@ SinglyList *remove_all_n(SinglyList *, int);
 */
 SinglyList *remove_f_n(SinglyList *, int);
 
-/**
-* 
-* @brief Separate the list in a number
-*
-* Searches for a specific number in the param list. If the number is found,
-* the list is separeted in the next knot that the number is.
-* And returns a pointer that points to the remaining part that was separeted.
-*
-* @param SinglyList** Pointer to the SinglyList
-* @param int The number that will be searched to separate the list in
-*
-* @return SinglyList* - Pointer to the remaining list
-*/
-SinglyList *separates_in_n(SinglyList **, int);
-
-/*
-* need to implement the function
-*/
-SinglyList *merge_lists(SinglyList *, SinglyList *);
 
 /**
 * 
