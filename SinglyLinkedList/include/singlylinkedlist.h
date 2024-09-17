@@ -86,7 +86,7 @@ SinglyList *concat(SinglyList *, SinglyList *);
 SinglyList *remove_all_n(SinglyList *, int);
 
 /*
-* implement
+* implemented
 */
 SinglyList *remove_f_n(SinglyList *, int);
 
@@ -125,7 +125,7 @@ SinglyList *merge_lists(SinglyList *, SinglyList *);
 void insert_beginning(SinglyList **, int);
 
 /*
-* need to implement
+* implemented
 */
 void insert_end(SinglyList **, int);
 

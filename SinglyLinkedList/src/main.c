@@ -135,7 +135,15 @@ int main(void) {
         printf("List10 witout the first 2: "); show_list(list10_r2);
 
 
+        SinglyList *list11 = create_list();
+        
+        printf("%d\n", len(list11));
 
+        for (int i = 0; i < 5; i++) {
+            insert_end(&list11, i);
+        }
+
+        printf("List11: "); show_list(list11);
 
 
         break; // comment to enable the loop

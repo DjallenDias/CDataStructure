@@ -12,8 +12,11 @@ SinglyList *create_list(void) {
 }
 
 SinglyList *last_item(SinglyList *l) {
-    SinglyList *aux;
-    for(aux = l; aux->next != NULL; aux = aux->next);
+    SinglyList *aux = l;
+    // Empty list
+    if (aux == NULL) {return aux;}
+
+    for(; aux->next != NULL; aux = aux->next);
     return aux;
 }
 
@@ -143,6 +146,25 @@ void insert_beginning(SinglyList **l, int element) {
     new->data = element;
     new->next = aux;
     *l = new;
+}
+
+void insert_end(SinglyList **l, int element) {
+    // List is empty
+    if ((*l) == NULL) {
+        insert_beginning(l, element);
+        return;
+    }
+
+    SinglyList *last = last_item(*l);
+    SinglyList *new = (SinglyList *) malloc(sizeof(SinglyList));
+
+    if(new == NULL) {
+        puts("Unable to allocate memory");
+    }
+    
+    new->data = element;
+    new->next = last->next;
+    last->next = new;
 }
 
 void show_list(SinglyList *l) {
