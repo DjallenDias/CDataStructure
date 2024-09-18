@@ -119,7 +119,7 @@ void remove_f_n(SinglyList **, int);
 
 /**
 * 
-* @brief Insert a new element at the beginning
+* @brief Insert a new element at the beginning of the list
 *
 * The parameter list will be updated. The integer param
 * will be inserted at the beginning of the list.
@@ -131,8 +131,17 @@ void remove_f_n(SinglyList **, int);
 */
 void insert_beginning(SinglyList **, int);
 
-/*
-* implemented
+/**
+* 
+* @brief Insert a new element at the end of the list
+*
+* The integer param
+* will be inserted at the end of the list.
+*
+* Parameters:
+* @param SinglyList* Pointer to the SinglyList that will be updated
+* @param int* The element to be inserted
+*
 */
 void insert_end(SinglyList **, int);
 

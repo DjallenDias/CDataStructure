@@ -5,9 +5,11 @@
 int main() {
     while (1) {
         SinglyList *list1 = create_list();
+        
         for(int i = 0; i <= 7; i++) {
             insert_end(&list1, i);
         }
+
         insert_end(&list1, 4);
         insert_beginning(&list1, 4);
 
