@@ -19,6 +19,12 @@ int main() {
         remove_all_n(&list1, 4);
         show_list(list1);
 
+        SinglyList *element = get_element(list1, 4);
+        show_list(element);
+
+        free_list(&list1);
+        free_list(&element);
+
         break;
     }
     

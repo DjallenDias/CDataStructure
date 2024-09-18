@@ -89,21 +89,31 @@ SinglyList *separates_in_n(SinglyList **, int);
 */
 SinglyList *merge_lists(SinglyList *, SinglyList *);
 
+SinglyList *get_element(SinglyList *, int);
+
 /**
 * 
 * @brief Remove all occurrences of a number from the singly linked list
 *
-* Searches for all occurrences of a specific number within this copied list. 
+* Searches for all occurrences of a specific number in the list. 
 * If the number is found, each occurrence is removed from the list. 
 *
-* @param SinglyList* Pointer to the first SinglyList
+* @param SinglyList* Pointer to the SinglyList
 * @param int The number that will be removed
 *
 */
 void remove_all_n(SinglyList **, int);
 
-/*
-* implemented
+/**
+* 
+* @brief Remove the first occurrence of a number from the singly linked list
+*
+* Searches for the first occurrence of a specific number in the list. 
+* If the number is found, it is removed from the list. 
+*
+* @param SinglyList* Pointer to the SinglyList
+* @param int The number that will be removed
+*
 */
 void remove_f_n(SinglyList **, int);
 

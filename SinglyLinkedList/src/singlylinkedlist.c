@@ -90,6 +90,23 @@ SinglyList *merge_lists(SinglyList *l1, SinglyList *l2) {
     return res;
 }
 
+SinglyList *get_element(SinglyList *l, int index) {
+    SinglyList *aux;
+    int count = 0;
+
+    if(index > len(l)) {return 0;}
+
+    for(aux = l; aux != NULL; aux = aux->next) {
+        if(index == count) {
+            SinglyList *res = copy_list(aux);
+            free_list(&(res->next));
+            return res;
+        }
+
+        count++;
+    }
+}
+
 void remove_all_n(SinglyList **l, int n) {
     SinglyList *aux = *l;
 
