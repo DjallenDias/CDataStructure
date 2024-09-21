@@ -77,18 +77,43 @@ SinglyList *concat(SinglyList *, SinglyList *);
 * the list is separeted in the next knot that the number is.
 * And returns a pointer that points to the remaining part that was separeted.
 *
-* @param SinglyList** Pointer to the SinglyList
+* @param SinglyList** Pointer to a pointer thats points to a SinglyList
 * @param int The number that will be searched to separate the list in
 *
 * @return SinglyList* - Pointer to the remaining list
 */
 SinglyList *separates_in_n(SinglyList **, int);
 
-/*
-* need to implement the function
+/**
+* 
+* @brief Merges two lists into one
+*
+* Merges two singly linked lists into a new list by alternating elements 
+* from both lists. The elements from the first list are inserted first, 
+* followed by elements from the second list, until all elements from both 
+* lists are exhausted. The resulting list maintains the original order 
+* of elements from both input lists.
+*
+* @param SinglyList* Pointer to a SinglyList
+* @param SinglyList* Pointer to a SinglyList
+*
+* @return SinglyList* - Pointer to the merged list
 */
 SinglyList *merge_lists(SinglyList *, SinglyList *);
 
+/**
+* 
+* @brief Get element at index
+*
+* Retrieves a copy of the node at the specified index from a singly linked list. 
+* The function returns a new list containing only the element at the given index, 
+* discarding all subsequent elements.
+*
+* @param SinglyList* Pointer to a SinglyList
+* @param index The position of the element to retrieve.
+* @return A new singly linked list containing only the element at the specified index, 
+*         or NULL if the index is out of bounds.
+*/
 SinglyList *get_element(SinglyList *, int);
 
 /**
@@ -98,9 +123,10 @@ SinglyList *get_element(SinglyList *, int);
 * Searches for all occurrences of a specific number in the list. 
 * If the number is found, each occurrence is removed from the list. 
 *
-* @param SinglyList* Pointer to the SinglyList
+* @param SinglyList** Pointer to a pointer thats points to a SinglyList
 * @param int The number that will be removed
-*
+* 
+* @return Void - Changes the list passed by parameter
 */
 void remove_all_n(SinglyList **, int);
 
@@ -111,9 +137,10 @@ void remove_all_n(SinglyList **, int);
 * Searches for the first occurrence of a specific number in the list. 
 * If the number is found, it is removed from the list. 
 *
-* @param SinglyList* Pointer to the SinglyList
+* @param SinglyList** Pointer to a pointer thats points to a SinglyList
 * @param int The number that will be removed
 *
+* @return Void - Changes the list passed by parameter
 */
 void remove_f_n(SinglyList **, int);
 
@@ -125,9 +152,10 @@ void remove_f_n(SinglyList **, int);
 * will be inserted at the beginning of the list.
 *
 * Parameters:
-* @param SinglyList* Pointer to the SinglyList that will be updated
+* @param SinglyList** Pointer to a pointer thats points to a SinglyList
 * @param int* The element to be inserted
 *
+* @return Void - Changes the list passed by parameter
 */
 void insert_beginning(SinglyList **, int);
 
@@ -139,20 +167,59 @@ void insert_beginning(SinglyList **, int);
 * will be inserted at the end of the list.
 *
 * Parameters:
-* @param SinglyList* Pointer to the SinglyList that will be updated
+* @param SinglyList** Pointer to a pointer thats points to a SinglyList
 * @param int* The element to be inserted
 *
+* @return Void - Changes the list passed by parameter
 */
 void insert_end(SinglyList **, int);
 
+/**
+* 
+* @brief Show all elements in a list
+*
+* @param SinglyList* Pointer to a SinglyList
+*/
 void show_list(SinglyList *);
 
+/**
+* 
+* @brief Deallocate the list from memory
+*
+* @param SinglyList** Pointer to a pointer thats points to a SinglyList
+*/
 void free_list(SinglyList **);
 
+/**
+* 
+* @brief Compare two lists
+*
+* @param SinglyList* Pointer to a SinglyList
+* @param SinglyList* Pointer to a SinglyList
+*
+* @return 0 - not equal | 1 - equal
+*/
 int is_equal(SinglyList *, SinglyList *);
 
+/**
+* 
+* @brief Return the number of elements greater than that passed by paramater
+*
+* @param SinglyList* Pointer to a SinglyList
+* @param int Element to compare
+*
+* @return Number of elements greater than that passed by paramater
+*/
 int greater_than(SinglyList *, int);
 
+/**
+* 
+* @brief Return the length of the list
+*
+* @param SinglyList* Pointer to a SinglyList
+*
+* @return Length of the list
+*/
 int len(SinglyList *);
 
 #endif // SINGLYLINKEDLIST_H

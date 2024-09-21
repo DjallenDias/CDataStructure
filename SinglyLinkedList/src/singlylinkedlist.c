@@ -99,6 +99,8 @@ SinglyList *get_element(SinglyList *l, int index) {
     for(aux = l; aux != NULL; aux = aux->next) {
         if(index == count) {
             SinglyList *res = copy_list(aux);
+            // Frees all the elements that come after the copied node
+            // wich is the same as the found one
             free_list(&(res->next));
             return res;
         }
