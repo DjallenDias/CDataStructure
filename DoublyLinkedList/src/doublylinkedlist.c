@@ -12,6 +12,16 @@ DoublyList *create_list(void) {
     return NULL;
 }
 
+DoublyList *last_item(DoublyList *l) {
+    DoublyList *aux = l;
+
+    if (aux == NULL) {return aux;}
+
+    for(; aux->next != NULL; aux = aux->next);
+    return aux;
+}
+
+
 void insert_beginning(DoublyList **l, int n) {
     DoublyList *aux = *l;
     DoublyList *new = (DoublyList *) malloc(sizeof(DoublyList));
