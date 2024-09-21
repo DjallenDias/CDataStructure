@@ -44,7 +44,7 @@ void insert_end(DoublyList **l, int n) {
         return;
     }
 
-    DoublyList *last = *l;
+    DoublyList *last = last_item(*l);
     DoublyList *new = (DoublyList *) malloc(sizeof(DoublyList));
 
     if (new == NULL) {
@@ -63,4 +63,16 @@ void show_list(DoublyList *l) {
         printf("%d ", aux->data);
     }
     printf("\n");
+}
+
+void free_list(DoublyList **l) {
+    DoublyList *curr = *l, *next;
+
+    while (curr != NULL) {
+        next = curr->next;
+        free(curr);
+        curr = next;
+    }
+    
+    *l = NULL;
 }
