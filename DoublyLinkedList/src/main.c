@@ -5,5 +5,11 @@
 int main(void) {
     DoublyList *d = create_list();
 
+    for(int i = 10; i > 0; i--) {
+        insert_beginning(&d, i);
+    }
+
+    show_list(d);
+
     return 0;
 }
