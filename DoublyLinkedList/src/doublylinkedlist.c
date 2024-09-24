@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+
 struct doubly_linked_list {
     struct doubly_linked_list *prev;
     int data;
@@ -10,6 +11,16 @@ struct doubly_linked_list {
 
 DoublyList *create_list(void) {
     return NULL;
+}
+
+DoublyList *copy_list(DoublyList *l) {
+    DoublyList *res = create_list();
+
+    for(DoublyList *aux = l; aux != NULL; aux = aux->next) {
+        insert_end(&res, aux->data);
+    }
+
+    return res;
 }
 
 DoublyList *last_item(DoublyList *l) {
