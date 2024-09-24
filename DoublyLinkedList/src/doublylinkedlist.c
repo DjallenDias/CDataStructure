@@ -23,6 +23,16 @@ DoublyList *copy_list(DoublyList *l) {
     return res;
 }
 
+DoublyList *invert_list(DoublyList *l) {
+    DoublyList *res = create_list();
+
+    for(DoublyList *aux = l; aux != NULL; aux = aux->next) {
+        insert_beginning(&res, aux->data);
+    }
+
+    return res;
+}
+
 DoublyList *last_item(DoublyList *l) {
     DoublyList *aux = l;
 

@@ -18,6 +18,9 @@ DoublyList *last_item(DoublyList *);
 */
 DoublyList *copy_list(DoublyList *);
 
+/*
+*
+*/
 DoublyList *invert_list(DoublyList *);
 
 DoublyList *concat(DoublyList *, DoublyList *);

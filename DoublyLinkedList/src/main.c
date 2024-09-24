@@ -16,8 +16,12 @@ int main(void) {
         DoublyList *l1copy = copy_list(l1);
         show_list(l1copy);
 
+        DoublyList *l1inverted = invert_list(l1);
+        show_list(l1inverted);
+
         free_list(&l1);
         free_list(&l1copy);
+        free_list(&l1inverted);
 
         break;
     }
