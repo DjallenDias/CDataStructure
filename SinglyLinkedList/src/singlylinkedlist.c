@@ -21,20 +21,13 @@ SinglyList *last_item(SinglyList *l) {
 }
 
 SinglyList *copy_list(SinglyList *l) {
-    SinglyList *copy_list = create_list();
-    SinglyList *aux = create_list();
-
-    for(SinglyList *curr = l; curr != NULL; curr = curr->next) {
-        insert_beginning(&aux, curr->data);
+    SinglyList *res = create_list();
+    
+    for(SinglyList *aux = l; aux != NULL; aux = aux->next) {
+        insert_end(&res, aux->data);
     }
 
-    for(SinglyList *curr = aux; curr != NULL; curr = curr->next) {
-        insert_beginning(&copy_list, curr->data);
-    }
-
-    free_list(&aux);
-
-    return copy_list;
+    return res;
 }
 
 SinglyList *invert_list(SinglyList *l) {

@@ -10,23 +10,14 @@ int main() {
             insert_end(&list1, i);
         }
 
-        insert_end(&list1, 4);
-        insert_beginning(&list1, 4);
-
         show_list(list1);
 
-        remove_f_n(&list1, 4);
-        show_list(list1);
-
-        remove_all_n(&list1, 4);
-        show_list(list1);
-
-        SinglyList *element = get_element(list1, 4);
-        show_list(element);
+        SinglyList *list1copy = copy_list(list1);
+        show_list(list1copy);
 
         free_list(&list1);
-        free_list(&element);
-
+        free_list(&list1copy);
+        
         break;
     }
     
