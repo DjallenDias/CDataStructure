@@ -98,9 +98,23 @@ void free_list(DoublyList **l) {
     *l = NULL;
 }
 
+int is_equal(DoublyList *l1, DoublyList *l2) {
+    if(len(l1) != len(l2)) {return 0;}
+
+    DoublyList *aux1 = l1, *aux2 = l2;
+    
+    while (aux1 != NULL) {
+        if(aux1->data != aux2->data) {return 0;}
+
+        aux1 = aux1->next; aux2 = aux2->next;
+    }
+
+    return 1;
+}
+
 int len(DoublyList *l) {
     int count = 0;
-    
+
     for(DoublyList *aux = l; aux != NULL; aux = aux->next) {
         count++;
     }
