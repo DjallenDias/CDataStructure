@@ -19,7 +19,8 @@ int main(void) {
         DoublyList *l1inverted = invert_list(l1);
         show_list(l1inverted);
 
-        printf("%d\n", greater_than(l1inverted, 8));
+        remove_f_n(&l1inverted, 5);
+        show_list(l1inverted);
 
         free_list(&l1);
         free_list(&l1copy);

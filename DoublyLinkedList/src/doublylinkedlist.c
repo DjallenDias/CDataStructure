@@ -42,6 +42,33 @@ DoublyList *last_item(DoublyList *l) {
     return aux;
 }
 
+void remove_all_n(DoublyList **l, int n) {
+
+}
+
+void remove_f_n(DoublyList **l, int n) {
+    DoublyList *aux = *l;
+
+    // First element
+    if(aux->data == n) {
+        DoublyList *to_free = aux;
+        *l = aux->next;
+        aux->next->prev = NULL;
+
+        free(to_free);
+        return;
+    }
+
+    for(; aux != NULL; aux = aux->next) {
+        if(aux->data == n) {
+            DoublyList *to_free = aux;
+            aux->prev->next = aux->next;
+            aux->next->prev = aux->prev;
+            free(to_free);
+            return;
+        }
+    }
+}
 
 void insert_beginning(DoublyList **l, int n) {
     DoublyList *aux = *l;
