@@ -59,6 +59,9 @@ int is_equal(DoublyList *, DoublyList *);
 
 int greater_than(DoublyList *, int);
 
+/*
+*
+*/
 int len(DoublyList *);
 
 #endif // DOUBLYLINKEDLIST_H

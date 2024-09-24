@@ -97,3 +97,13 @@ void free_list(DoublyList **l) {
     
     *l = NULL;
 }
+
+int len(DoublyList *l) {
+    int count = 0;
+    
+    for(DoublyList *aux = l; aux != NULL; aux = aux->next) {
+        count++;
+    }
+
+    return count;
+}
