@@ -112,6 +112,16 @@ int is_equal(DoublyList *l1, DoublyList *l2) {
     return 1;
 }
 
+int greater_than(DoublyList *l, int n) {
+    int res = 0;
+
+    for (DoublyList *aux = l; aux != NULL; aux = aux->next) {
+        if(aux->data > n) {res++;}
+    }
+    
+    return res++;
+}
+
 int len(DoublyList *l) {
     int count = 0;
 

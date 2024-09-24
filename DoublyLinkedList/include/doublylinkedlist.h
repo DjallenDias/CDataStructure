@@ -55,8 +55,14 @@ void show_list(DoublyList *);
 */
 void free_list(DoublyList **);
 
+/*
+*
+*/
 int is_equal(DoublyList *, DoublyList *);
 
+/*
+*
+*/
 int greater_than(DoublyList *, int);
 
 /*
