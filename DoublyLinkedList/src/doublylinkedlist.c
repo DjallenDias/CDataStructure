@@ -83,6 +83,10 @@ void insert_beginning(DoublyList **l, int n) {
     new->next = aux;
     new->prev = NULL;
 
+    if (aux != NULL) {
+        aux->prev = new;
+    }
+
     *l = new;
 }
 
