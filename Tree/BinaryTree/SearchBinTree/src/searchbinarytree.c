@@ -14,6 +14,12 @@ Knot *create_knot(void) {
     return NULL;
 }
 
+/* I don't want to "export" these functions */
+Knot *balance_tree(Knot *);
+Knot *rotate_left(Knot *);
+Knot *rotate_right(Knot *);
+int max2(int, int);
+
 Knot *insert_knot(Knot *root, int number) {
     if (root == NULL) {
         root = (Knot *) malloc(sizeof(Knot));
@@ -37,16 +43,34 @@ Knot *insert_knot(Knot *root, int number) {
 Knot *balance_tree(Knot *root) {
     if (root->bf == 2) {
         if (root->left_c->bf == -1 ) {
-            rotate_left(root->left_c);
+            root->left_c = rotate_left(root->left_c);
         }
-        rotate_right(root);
+        root = rotate_right(root);
     }
     if (root->bf == -2) {
         if (root->right_c->bf == 1) {
-            rotate_right(root->right_c);
+            root->right_c = rotate_right(root->right_c);
         }
-        rotate_left(root);
+        root = rotate_left(root);
     }
+    return root;
+}
+
+Knot *rotate_left(Knot *root) {
+    Knot *knot;
+    knot = root->right_c;
+    root->right_c = knot->left_c;
+    knot->left_c = root;
+    root = knot;
+    return root;
+}
+
+Knot *rotate_right(Knot *root) {
+    Knot *knot;
+    knot = root->left_c;
+    root->left_c = knot->right_c;
+    knot->right_c = root;
+    root = knot;
     return root;
 }
 
@@ -86,10 +110,10 @@ void show_tree(Knot *root) {
 
 void show_tree_pre(Knot *root) {
     if (root != NULL) {
-        printf("info: %d, bf: %d\n", root->info, root->bf);
-        puts("Left...");
+        printf("%d\n", root->info);
+        printf("%d->left\n", root->info);
         show_tree_pre(root->left_c);
-        puts("Right...");
+        printf("%d->right\n", root->info);
         show_tree_pre(root->right_c);
     }
 }
