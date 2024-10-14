@@ -11,6 +11,8 @@ Knot *free_tree(Knot *);
 
 int is_empty(Knot *);
 
+int tree_height(Knot *);
+
 void show_tree(Knot *);
 
 #endif // BINARYTREE_H

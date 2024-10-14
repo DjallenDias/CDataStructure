@@ -34,6 +34,18 @@ int is_empty(Knot *t) {
     return t == NULL;
 }
 
+int max2(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+int tree_height(Knot *t) {
+    if (is_empty(t)) {
+        return -1;
+    } else {
+        return 1 + max2(tree_height(t->left_c), tree_height(t->right_c));
+    }
+}
+
 void show_tree(Knot *t) {
     printf("<");
     if (!is_empty(t)) {

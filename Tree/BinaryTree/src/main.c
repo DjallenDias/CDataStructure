@@ -19,6 +19,7 @@ int main(void) {
 
     show_tree(a);
     puts("");
+    printf("%d\n", tree_height(a));
 
     return 0;
 }
