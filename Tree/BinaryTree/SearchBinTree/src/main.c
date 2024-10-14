@@ -14,7 +14,7 @@ int main(void) {
     arvore = insert_knot(arvore, 14);
     arvore = insert_knot(arvore, 9);
 
-    show_tree(arvore);
+    show_tree_pre(arvore);
 
     return 0;
 }

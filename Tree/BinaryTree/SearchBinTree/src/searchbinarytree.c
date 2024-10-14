@@ -51,3 +51,19 @@ void show_tree(Knot *root) {
         show_tree(root->right_c);
     }
 }
+
+void show_tree_pre(Knot *root) {
+    if (root != NULL) {
+        printf("%d, ", root->info);
+        show_tree(root->left_c);
+        show_tree(root->right_c);
+    }
+}
+
+void show_tree_pos(Knot *root) {
+    if (root != NULL) {
+        show_tree(root->left_c);
+        show_tree(root->right_c);
+        printf("%d, ", root->info);
+    }
+}

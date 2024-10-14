@@ -11,4 +11,7 @@ Knot *search_for(Knot *, int);
 
 void show_tree(Knot *);
 
+void show_tree_pre(Knot *);
+void show_tree_pos(Knot *);
+
 #endif // BINARYTREE_H
