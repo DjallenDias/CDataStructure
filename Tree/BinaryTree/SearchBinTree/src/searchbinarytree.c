@@ -7,6 +7,7 @@ struct t_knot {
     struct t_knot * left_c;
     int info;
     struct t_knot * right_c;
+    int bf; // balance factor
 };
 
 Knot *create_knot(void) {
@@ -26,6 +27,25 @@ Knot *insert_knot(Knot *root, int number) {
     }
     else if (root->info < number) {
         root->right_c = insert_knot(root->right_c, number);
+    }
+    root->bf = (tree_height(root->left_c) - tree_height(root->right_c));
+
+    root = balance_tree(root);
+    return root;
+}
+
+Knot *balance_tree(Knot *root) {
+    if (root->bf == 2) {
+        if (root->left_c->bf == -1 ) {
+            rotate_left(root->left_c);
+        }
+        rotate_right(root);
+    }
+    if (root->bf == -2) {
+        if (root->right_c->bf == 1) {
+            rotate_right(root->right_c);
+        }
+        rotate_left(root);
     }
     return root;
 }
@@ -52,9 +72,8 @@ int tree_height(Knot *root) {
     if (root == NULL) {
         return -1;
     } else {
-        return 1 + max2(tree_height(root->left_c), tree_height(root->right_c));
+        return (1 + max2(tree_height(root->left_c), tree_height(root->right_c)));
     }
-
 }
 
 void show_tree(Knot *root) {
@@ -67,16 +86,18 @@ void show_tree(Knot *root) {
 
 void show_tree_pre(Knot *root) {
     if (root != NULL) {
-        printf("%d, ", root->info);
-        show_tree(root->left_c);
-        show_tree(root->right_c);
+        printf("info: %d, bf: %d\n", root->info, root->bf);
+        puts("Left...");
+        show_tree_pre(root->left_c);
+        puts("Right...");
+        show_tree_pre(root->right_c);
     }
 }
 
 void show_tree_pos(Knot *root) {
     if (root != NULL) {
-        show_tree(root->left_c);
-        show_tree(root->right_c);
+        show_tree_pos(root->left_c);
+        show_tree_pos(root->right_c);
         printf("%d, ", root->info);
     }
 }

@@ -13,6 +13,7 @@ int main(void) {
     arvore = insert_knot(arvore, 12);
     arvore = insert_knot(arvore, 14);
     arvore = insert_knot(arvore, 9);
+    arvore = insert_knot(arvore, 7);
 
     show_tree_pre(arvore);
     puts("");
