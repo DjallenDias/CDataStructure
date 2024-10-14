@@ -9,6 +9,8 @@ Knot *insert_knot(Knot *, int);
 
 Knot *search_for(Knot *, int);
 
+int tree_height(Knot *);
+
 void show_tree(Knot *);
 
 void show_tree_pre(Knot *);

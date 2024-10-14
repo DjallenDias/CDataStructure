@@ -15,6 +15,8 @@ int main(void) {
     arvore = insert_knot(arvore, 9);
 
     show_tree_pre(arvore);
+    puts("");
+    printf("%d\n", tree_height(arvore));
 
     return 0;
 }

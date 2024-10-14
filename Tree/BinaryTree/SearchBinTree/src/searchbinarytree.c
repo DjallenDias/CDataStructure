@@ -44,6 +44,19 @@ Knot *search_for(Knot *root, int number) {
     return NULL;
 }
 
+int max2(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+int tree_height(Knot *root) {
+    if (root == NULL) {
+        return -1;
+    } else {
+        return 1 + max2(tree_height(root->left_c), tree_height(root->right_c));
+    }
+
+}
+
 void show_tree(Knot *root) {
     if (root != NULL) {
         show_tree(root->left_c);
