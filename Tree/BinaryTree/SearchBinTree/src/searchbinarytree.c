@@ -13,19 +13,34 @@ Knot *create_knot(void) {
     return NULL;
 }
 
+Knot *insert_knot(Knot *root, int number) {
+    if (root == NULL) {
+        root = (Knot *) malloc(sizeof(Knot));
+
+        root->info = number;
+        root->left_c = NULL;
+        root->right_c = NULL;
+    }
+    else if (root->info > number) {
+        root->left_c = insert_knot(root->left_c, number);
+    }
+    else if (root->info < number) {
+        root->right_c = insert_knot(root->right_c, number);
+    }
+    return root;
+}
+
 Knot *search_for(Knot *root, int number) {
     if (root != NULL) {
         if (root->info > number) {
             return search_for(root->left_c, number);
         }
-
         if (root->info < number) {
             return search_for(root->right_c, number);
         }
-
         return root;
     }
-    
+
     return NULL;
 }
 

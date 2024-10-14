@@ -5,6 +5,8 @@ typedef struct t_knot Knot;
 
 Knot *create_knot(void);
 
+Knot *insert_knot(Knot *, int);
+
 Knot *search_for(Knot *, int);
 
 void show_tree(Knot *);
