@@ -43,7 +43,26 @@ DoublyList *last_item(DoublyList *l) {
 }
 
 void remove_all_n(DoublyList **l, int n) {
+    DoublyList *aux = *l;
 
+    // First element
+    if(aux->data == n) {
+        DoublyList *to_free = aux;
+        *l = aux->next;
+        aux->next->prev = NULL;
+        free(to_free);
+    }
+
+    for(aux = *l; aux != NULL; aux = aux->next) {
+        if(aux->data == n) {
+            DoublyList *to_free = aux;
+            aux->prev->next = aux->next;
+            if(aux->next != NULL) {
+                aux->next->prev = aux->prev;
+            }
+            free(to_free);
+        }
+    }
 }
 
 void remove_f_n(DoublyList **l, int n) {
@@ -54,7 +73,6 @@ void remove_f_n(DoublyList **l, int n) {
         DoublyList *to_free = aux;
         *l = aux->next;
         aux->next->prev = NULL;
-
         free(to_free);
         return;
     }
@@ -137,7 +155,8 @@ int is_equal(DoublyList *l1, DoublyList *l2) {
     while (aux1 != NULL) {
         if(aux1->data != aux2->data) {return 0;}
 
-        aux1 = aux1->next; aux2 = aux2->next;
+        aux1 = aux1->next;
+        aux2 = aux2->next;
     }
 
     return 1;

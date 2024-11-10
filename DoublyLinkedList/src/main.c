@@ -19,12 +19,22 @@ int main(void) {
         DoublyList *l1inverted = invert_list(l1);
         show_list(l1inverted);
 
-        remove_f_n(&l1inverted, 5);
-        show_list(l1inverted);
-
         free_list(&l1);
         free_list(&l1copy);
         free_list(&l1inverted);
+
+        DoublyList *l2 = create_list();
+        for(int i = 0; i < 10; i++) {
+            insert_beginning(&l2, i);
+        }
+        insert_end(&l2, 1);
+        insert_beginning(&l2, 1);
+
+        puts("");
+        show_list(l2);
+
+        remove_all_n(&l2, 1);
+        show_list(l2);
 
         break;
     }
