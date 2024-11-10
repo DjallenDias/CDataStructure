@@ -42,6 +42,16 @@ DoublyList *last_item(DoublyList *l) {
     return aux;
 }
 
+DoublyList *concat(DoublyList *l1, DoublyList *l2) {
+    DoublyList *concatenated = copy_list(l1);
+    for(DoublyList *aux = concatenated; aux != NULL; aux = aux->next) {
+        if(aux->next == NULL) {
+            aux->next = copy_list(l2);
+            return concatenated;
+        }
+    }
+}
+
 void remove_all_n(DoublyList **l, int n) {
     DoublyList *aux = *l;
 

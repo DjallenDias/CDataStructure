@@ -11,13 +11,17 @@ int main(void) {
             insert_end(&l1, i);
         }
 
-        show_list(l1);
+        printf("List l1: "); show_list(l1);
 
         DoublyList *l1copy = copy_list(l1);
-        show_list(l1copy);
+        printf("List l1 copy: "); show_list(l1copy);
+        printf("\tList l1 addres %p", l1);
+        puts("");
+        printf("\tList l1 copy addres %p", l1copy);
+        puts("");
 
         DoublyList *l1inverted = invert_list(l1);
-        show_list(l1inverted);
+        printf("List l1 inveted: "); show_list(l1inverted);
 
         free_list(&l1);
         free_list(&l1copy);
@@ -31,11 +35,29 @@ int main(void) {
         insert_beginning(&l2, 1);
 
         puts("");
-        show_list(l2);
+        printf("List l2: "); show_list(l2);
 
         remove_all_n(&l2, 1);
-        show_list(l2);
+        printf("List l2 without numbers 1: "); show_list(l2);
+        
+        free_list(&l2);
 
+        DoublyList *l3, *l4;
+        l3 = create_list();
+        l4 = create_list();
+
+        for(int i = 0; i < 9; i++) {
+            insert_beginning(&l3, i);
+        }
+        printf("List l3: "); show_list(l3);
+
+        for(int i = 9; i < 21; i++) {
+            insert_beginning(&l4, i);
+        }
+        printf("List l4: "); show_list(l4);
+
+        DoublyList *l3concatl4 = concat(l3, l4);
+        printf("List l3 concatenated with list l4: "); show_list(l3concatl4);
         break;
     }
 
