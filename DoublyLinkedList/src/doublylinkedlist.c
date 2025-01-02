@@ -13,6 +13,15 @@ DoublyList *create_list(void) {
     return NULL;
 }
 
+DoublyList *last_item(DoublyList *l) {
+    DoublyList *aux = l;
+
+    if (aux == NULL) {return aux;}
+
+    for(; aux->next != NULL; aux = aux->next);
+    return aux;
+}
+
 DoublyList *copy_list(DoublyList *l) {
     DoublyList *res = create_list();
 
@@ -31,15 +40,6 @@ DoublyList *invert_list(DoublyList *l) {
     }
 
     return res;
-}
-
-DoublyList *last_item(DoublyList *l) {
-    DoublyList *aux = l;
-
-    if (aux == NULL) {return aux;}
-
-    for(; aux->next != NULL; aux = aux->next);
-    return aux;
 }
 
 DoublyList *concat(DoublyList *l1, DoublyList *l2) {
@@ -62,6 +62,14 @@ DoublyList *separates_in_n(DoublyList **l, int n) {
             return res;
         }
     }
+}
+
+DoublyList *merge_lists(DoublyList *l1, DoublyList *l2) {
+
+}
+
+DoublyList *get_element(DoublyList *l, int index) {
+
 }
 
 void remove_all_n(DoublyList **l, int n) {

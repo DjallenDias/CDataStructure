@@ -23,16 +23,34 @@ DoublyList *copy_list(DoublyList *);
 */
 DoublyList *invert_list(DoublyList *);
 
+/*
+*
+*/
 DoublyList *concat(DoublyList *, DoublyList *);
 
+/*
+*
+*/
 DoublyList *separates_in_n(DoublyList **, int);
 
+/*
+*
+*/
 DoublyList *merge_lists(DoublyList *, DoublyList *);
 
+/*
+*
+*/
 DoublyList *get_element(DoublyList *, int);
 
+/*
+*
+*/
 void remove_all_n(DoublyList **, int);
 
+/*
+*
+*/
 void remove_f_n(DoublyList **, int);
 
 /*
