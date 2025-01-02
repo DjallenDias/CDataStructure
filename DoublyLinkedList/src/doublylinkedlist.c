@@ -52,6 +52,18 @@ DoublyList *concat(DoublyList *l1, DoublyList *l2) {
     }
 }
 
+DoublyList *separates_in_n(DoublyList **l, int n) {
+    DoublyList *res;
+    for(DoublyList *aux = *l; aux != NULL; aux = aux->next) {
+        if(aux->data == n) {
+            res = aux->next;
+            res->prev = NULL;
+            aux->next = NULL;
+            return res;
+        }
+    }
+}
+
 void remove_all_n(DoublyList **l, int n) {
     DoublyList *aux = *l;
 

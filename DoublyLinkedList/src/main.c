@@ -58,6 +58,30 @@ int main(void) {
 
         DoublyList *l3concatl4 = concat(l3, l4);
         printf("List l3 concatenated with list l4: "); show_list(l3concatl4);
+
+        free_list(&l3);
+        free_list(&l4);
+        free_list(&l3concatl4);
+
+        DoublyList *l5 = create_list();
+        for(int i = 0; i < 10; i++) {
+            insert_beginning(&l5, i);
+        }
+
+        printf("List l5: ");
+        show_list(l5);
+
+        DoublyList *l5separated;
+
+        l5separated = separates_in_n(&l5, 6);
+
+        printf("List l5: ");
+        show_list(l5);
+        printf("List l5 separated in 6: ");
+        show_list(l5separated);
+
+        free_list(&l5);
+        free_list(&l5separated);
         break;
     }
 
