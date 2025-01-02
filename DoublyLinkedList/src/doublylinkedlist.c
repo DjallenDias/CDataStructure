@@ -65,7 +65,22 @@ DoublyList *separates_in_n(DoublyList **l, int n) {
 }
 
 DoublyList *merge_lists(DoublyList *l1, DoublyList *l2) {
+    DoublyList *res_aux = create_list();
+    DoublyList *aux1 = l1, *aux2 = l2;
 
+    while ((aux1 != NULL) || (aux2 != NULL)) {
+        if (aux1) {
+            insert_end(&res_aux, aux1->data);
+            aux1 = aux1->next;
+        }
+
+        if (aux2) {
+            insert_end(&res_aux, aux2->data);
+            aux2 = aux2->next;
+        }
+    }
+    
+    return res_aux;
 }
 
 DoublyList *get_element(DoublyList *l, int index) {

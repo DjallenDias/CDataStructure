@@ -82,6 +82,26 @@ int main(void) {
 
         free_list(&l5);
         free_list(&l5separated);
+
+        DoublyList *l6, *l7;
+        l6 = create_list();
+        l7 = create_list();
+
+        for(int i = 0; i < 9; i++) {
+            insert_beginning(&l6, i);
+        }
+        printf("List l6: "); show_list(l6);
+
+        for(int i = 9; i < 21; i++) {
+            insert_beginning(&l7, i);
+        }
+        printf("List l7: "); show_list(l7);
+
+        DoublyList *l6mergel7 = merge_lists(l6, l7);
+
+        printf("L6 and l7 merged: ");
+        show_list(l6mergel7);
+
         break;
     }
 
