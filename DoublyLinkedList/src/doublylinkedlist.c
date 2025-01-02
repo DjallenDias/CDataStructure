@@ -84,7 +84,21 @@ DoublyList *merge_lists(DoublyList *l1, DoublyList *l2) {
 }
 
 DoublyList *get_element(DoublyList *l, int index) {
+    DoublyList *aux = l;
+    int count = 0;
 
+    if(index > len(aux)) {return 0;}
+
+    for(aux = l; aux != NULL; aux = aux->next) {
+        if(index == count) {
+            DoublyList *res = copy_list(aux);
+            // Frees all the elements that come after the copied node
+            // wich is the same as the found one
+            free_list(&(res->next));
+            return res;
+        }
+        count++;     
+    }
 }
 
 void remove_all_n(DoublyList **l, int n) {

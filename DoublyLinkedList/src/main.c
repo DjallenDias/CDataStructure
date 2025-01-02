@@ -102,6 +102,25 @@ int main(void) {
         printf("L6 and l7 merged: ");
         show_list(l6mergel7);
 
+        free_list(&l6);
+        free_list(&l7);
+        free_list(&l6mergel7);
+
+        DoublyList *l8 = create_list();
+        for(int i = 0; i < 11; i++) {
+            insert_end(&l8, i);
+        }
+
+        printf("List l8: ");
+        show_list(l8);
+
+        DoublyList *l8element = get_element(l8, 6);
+        printf("6th element at list l8: ");
+        show_list(l8element);
+
+        free_list(&l8);
+        free_list(&l8element);
+
         break;
     }
 
